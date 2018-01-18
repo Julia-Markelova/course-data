@@ -60,12 +60,12 @@
         <div class="w3-dropdown-hover w3-hide-small">
             <button class="w3-button" title="Themes">Темы <i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-                <a href="#team" class="w3-bar-item w3-button">Эры</a>
-                <a href="#contact" class="w3-bar-item w3-button">Рельеф</a>
-                <a href="#team" class="w3-bar-item w3-button">Животные</a>
-                <a href="#contact" class="w3-bar-item w3-button">Раскопки</a>
-                <a href="#team" class="w3-bar-item w3-button">Континенты</a>
-                <a href="#contact" class="w3-bar-item w3-button">Минералы</a>
+                <a href="/era" class="w3-bar-item w3-button">Эры</a>
+                <a href="/relief" class="w3-bar-item w3-button">Рельеф</a>
+                <a href="/animal" class="w3-bar-item w3-button">Животные</a>
+                <a href="/remain" class="w3-bar-item w3-button">Раскопки</a>
+                <a href="/continent" class="w3-bar-item w3-button">Континенты</a>
+                <a href="/mineral" class="w3-bar-item w3-button">Минералы</a>
             </div>
         </div>
         <div class="w3-dropdown-hover w3-hide-small">
@@ -80,15 +80,14 @@
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-        <a href="#team" class="w3-bar-item w3-button">Новости</a>
-        <a href="#work" class="w3-bar-item w3-button">Смотреть</a>
-        <a href="#pricing" class="w3-bar-item w3-button">Читать</a>
-        <a href="#contact" class="w3-bar-item w3-button">Тесты</a>
-        <a href="#" class="w3-bar-item w3-button">Библиотека</a>
-        <a href="#contact" class="w3-bar-item w3-button">События</a>
-        <a href="#" class="w3-bar-item w3-button">Интерактивность</a>
-        <a href="#contact" class="w3-bar-item w3-button">Темы</a>
-        <a href="#" class="w3-bar-item w3-button">Личный кабинет</a>
+        <a href="/" class="w3-bar-item w3-button">Новости</a>
+        <a href="/showVideos" class="w3-bar-item w3-button">Смотреть</a>
+        <a href="/showRead" class="w3-bar-item w3-button">Читать</a>
+        <a href="/showTests" class="w3-bar-item w3-button">Тесты</a>
+        <a href="/showLibrary" class="w3-bar-item w3-button">Библиотека</a>
+        <a href="/showEvents" class="w3-bar-item w3-button">События</a>
+        <a href="/showInterakt" class="w3-bar-item w3-button">Интерактивность</a>
+        <a href="/showPrivateAccount" class="w3-bar-item w3-button">Личный кабинет</a>
     </div>
 </div>
 
@@ -148,18 +147,14 @@
             <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  lifeintheearth@mail.ru</p>
         </div>
         <div class="w3-col m7">
-            <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank" method="post">
+            <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/messageForAdmin" target="_blank" method="post">
                 <div class="w3-section">
                     <label>Имя</label>
-                    <input class="w3-input" type="text" name="Name" required>
-                </div>
-                <div class="w3-section">
-                    <label>Email</label>
-                    <input class="w3-input" type="text" name="Email" required>
+                    <input class="w3-input" type="text" name="Name" required="true">
                 </div>
                 <div class="w3-section">
                     <label>Ваше сообщение</label>
-                    <input class="w3-input" type="text" name="Message" required>
+                    <input class="w3-input" type="text" name="Message" required="true">
                 </div>
                 <input class="w3-check" type="checkbox" checked name="Like">
                 <label>I Like it!</label>
@@ -172,12 +167,39 @@
 <!-- Footer -->
 <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
     <h4>Конец!</h4>
+    <a href="/developers">Разработчикам</a>
     <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
         <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
         <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
     <i class="fa fa-chevron-circle-up"></i></span></a>
     </div>
 </footer>
+
+
+<script>
+    // Script for side navigation
+    function w3_open() {
+        var x = document.getElementById("mySidebar");
+        x.style.width = "300px";
+        x.style.paddingTop = "10%";
+        x.style.display = "block";
+    }
+
+    // Close side navigation
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") === -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
 
 
 </body>

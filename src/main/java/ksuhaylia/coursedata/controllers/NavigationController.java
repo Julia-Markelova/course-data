@@ -41,7 +41,7 @@ public class NavigationController {
         model.addObject("do", "исследовать");
         model.addObject("pageName", "Private Account");
         model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
-        model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+        model.addObject("videos", postRepository.findPostsByTypeAndUser("Видеоконтент",user).size());
         model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
         model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
         logger.info("user "+user.getEmail()+" is in private account now");
@@ -149,6 +149,11 @@ public class NavigationController {
         model.addObject("pageName", "New post");
         model.setViewName("../static/Ksyu/createNewPostPage");
         return model;
+    }
+
+    @RequestMapping("/403")
+    public ModelAndView error(){
+        return new ModelAndView("../static/403");
     }
 
 }

@@ -13,14 +13,14 @@
                     <div class="group">
                         <label for="AeMail" class="label" id="userLabel">Логин</label>
                         <input id="AeMail" type="text" class="w3-input" name="username" required="true" placeholder="E-mail"
-                               onclick="noErrorName()">
+                               onclick="noErrorName()" maxlength="20">
                         <label for="AeMail" style="color: transparent" id="AincorrectEMail">некорректный E-mail!</label>
                         <label for="AeMail" style="color: transparent" id="AenterEmail">Заполните это поле!</label>
                     </div>
                     <div class="group">
                         <label for="Apassword" class="label">Пароль</label>
                         <input id="Apassword" type="password" class="w3-input" data-type="password" required="true"
-                               name="password" placeholder="пароль" onclick="noErrorPassword()">
+                               name="password" placeholder="пароль" onclick="noErrorPassword()" maxlength="20">
                         <label for="Apassword" style="color: transparent" id="AincorrectPassword">Заполните это поле!</label>
                     </div>
                     <div class="group">
@@ -48,25 +48,26 @@
                     <div class="group">
                         <label for="userName" class="label"> Имя</label>
                         <input id="userName" type="text" class="w3-input" name="name" placeholder="Ваше имя"
-                               onclick="noErrorRname()">
+                               onclick="noErrorRname()" maxlength="20">
                         <label for="userName" style="color: transparent" id="enterName">Заполните это поле!</label>
                     </div>
                     <div class="group">
                         <label for="userLastName" class="label">Фамилия</label>
-                        <input id="userLastName" type="text" class="w3-input" name="lastname" placeholder="Your lastname">
+                        <input id="userLastName" type="text" class="w3-input" name="lastname"
+                               placeholder="Your lastname" maxlength="20">
                         <label for="userLastName" style="color: transparent">lol</label>
                     </div>
                     <div class="group">
                         <label for="eMail" class="label">E-mail</label>
                         <input id="eMail" type="text" class="w3-input" name="e-mail" required="true"
-                               placeholder="Ваш E-mail" onclick="noErrorReMail()">
+                               placeholder="Ваш E-mail" onclick="noErrorReMail()" maxlength="20">
                         <output for="eMail" style="color: red" id="existEmail"></output>
                         <label for="eMail" style="color: transparent" id="incorrectEMail">некорректный E-mail!</label>
                     </div>
                     <div class="group">
                         <label for="password" class="label">Придумайте пароль</label>
                         <input id="password" type="password" class="w3-input" required="true" name="password"
-                               placeholder="пароль" onclick="noErrorRpassword()">
+                               placeholder="пароль" onclick="noErrorRpassword()" maxlength="20">
                         <label for="password" style="color: transparent" id="enterPassword">Заполните это поле!</label>
                     </div>
                     <div class="group">

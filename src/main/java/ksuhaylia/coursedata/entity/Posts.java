@@ -12,6 +12,7 @@ public class Posts {
     private String theme;
     private Users user;
     private String content;
+    private boolean allow;
 
 
     @Id
@@ -86,6 +87,15 @@ public class Posts {
     public void setContent(String content) {
         this.content = content;
 
+    }
+    @Basic
+    @Column(name = "allow")
+    public boolean isAllow() {
+        return allow;
+    }
+
+    public void setAllow(boolean allow) {
+        this.allow = allow;
     }
 
     public Posts() { }

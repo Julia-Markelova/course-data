@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,8 @@ import java.util.*;
  */
 @Controller
 public class AuthorizationController {
-
+    @Autowired
+    private PasswordEncoder encoder;
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -51,7 +53,7 @@ public class AuthorizationController {
         model.addObject("do","исследовать");
         model.addObject("pageName","Private Account");
         model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
-        model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+        model.addObject("videos", postRepository.findPostsByTypeAndUser("Видеоконтент",user).size());
         model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
         model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
         return model;
@@ -104,7 +106,7 @@ public class AuthorizationController {
                 model.addObject("do","исследовать");
                 model.addObject("pageName","Private account");
                 model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
-                model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+                model.addObject("videos", postRepository.findPostsByTypeAndUser("Видеоконтент",user).size());
                 model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
                 model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
                 confirmMap.remove((String)entry.getKey());

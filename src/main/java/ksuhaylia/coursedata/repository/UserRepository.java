@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<Users,Integer> {
       public Users findUsersByEmail(String email);
+      public Users findUsersByAdmin(boolean isAdmin);
 }

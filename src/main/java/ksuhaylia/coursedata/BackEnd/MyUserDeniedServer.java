@@ -44,6 +44,8 @@ public class MyUserDeniedServer implements UserDetailsService {
             authorityList.add(new SimpleGrantedAuthority("ROLE_minerolog"));
         if(user.getAntropolog())
             authorityList.add(new SimpleGrantedAuthority("ROLE_antropolog"));
+        if(user.getAdmin())
+            authorityList.add(new SimpleGrantedAuthority("ROLE_admin"));
         System.out.println(authorityList);
         return new User(user.getEmail(),user.getPassword(),authorityList);
     }

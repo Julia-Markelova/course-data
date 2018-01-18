@@ -1,31 +1,19 @@
 /**
+ * Created by ymark on 18.01.2018.
+ */
+/**
  * Created by ymark on 17.01.2018.
  */
 
 
 $(function () {
-    switch (location.pathname){
-        case "/showEvents":
-            update("/updateEvents");
-            break;
-        case "/showRead":
-            update("/updatePosts");
-            break;
-        case "/showVideos":
-            update("/updateVideos");
-            break;
-        case "/showTests":
-            update("/updateTests");
-            break;
-        case "/":
-            update("/updateNews");
-            break;
-    }
+    update("/developerAllow");
 });
 
 function update(url) {
     $.ajax({
         url: url,
+        data: {theme: document.getElementById("value").value},
         success: function (data) {
             clear();
             if(data.length>0) {
@@ -33,15 +21,24 @@ function update(url) {
                     draw(t);
                 })
             }
-            else document.getElementById("new").innerHTML= "В данном разделе нет публикаций";
+            else document.getElementById("theme").innerHTML= "Нет новых публикаций";
         },
         dataType: "json"
     });
 }
 
+function allow() {
+    $.ajax({
+        url: "/allow",
+        data: {id: document.getElementById("id").value},
+        dataType: 'text',
+        success: function(){document.getElementById("li5").innerHTML="Запись опубликована";},
+        error:function(){document.getElementById("li5").innerHTML="Ошибка!";}
+    })
+}
 
 function draw(t) {
-    var mainDiv = document.getElementById("new");
+    var mainDiv = document.getElementById("theme");
     var form = document.createElement("form");
     var innerDiv = document.createElement("div");
     innerDiv.setAttribute("class", "w3-third w3-margin-bottom");
@@ -63,7 +60,7 @@ function draw(t) {
     li3.setAttribute("class", "w3-padding-16");
     li3.innerHTML ="Автор: ";
     var b2 = document.createElement("b");
-    b2.innerHTML =     t.user.userName + " " + t.user.userLastName;
+    b2.innerHTML = t.user.userName + " " + t.user.userLastName;
     li3.appendChild(b2);
     var li4 = document.createElement("li");
     li4.setAttribute("class", "w3-padding-16");
@@ -77,25 +74,36 @@ function draw(t) {
     var hidden = document.createElement("input");
     hidden.setAttribute("type","hidden");
     hidden.setAttribute("name","id");
+    hidden.setAttribute("id","id");
     hidden.setAttribute("value",t.id);
     var button = document.createElement("button");
     button.setAttribute("class", "w3-button w3-teal w3-padding-large");
     button.setAttribute("type","submit");
-    button.innerHTML = "Подробнее";
+    button.innerHTML="Подробнее";
+    var li6 = document.createElement("li");
+    li6.setAttribute("class", "w3-theme-l5 w3-padding-24");
+    li6.setAttribute("id","li5");
+    var button1 = document.createElement("button");
+    button1.setAttribute("class", "w3-button w3-teal w3-padding-large");
+    button1.setAttribute("type","button");
+    button1.setAttribute("onclick","allow()");
+    button1.innerHTML = "Опубликовать";
     form.appendChild(button);
     form.appendChild(hidden);
     li5.appendChild(form);
+    li6.appendChild(button1);
     ul.appendChild(li1);
     ul.appendChild(li2);
     ul.appendChild(li3);
     ul.appendChild(li4);
     ul.appendChild(li5);
+    ul.appendChild(li6);
     innerDiv.appendChild(ul);
     mainDiv.appendChild(innerDiv);
 }
 
 function clear() {
-    var mainDiv = document.getElementById("new");
+    var mainDiv = document.getElementById("theme");
     while (mainDiv.firstChild) {
         mainDiv.removeChild(mainDiv.firstChild);
     }
@@ -105,3 +113,6 @@ function clear() {
 
 
 
+/**
+ * Created by ymark on 18.01.2018.
+ */

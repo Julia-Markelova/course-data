@@ -11,7 +11,7 @@ $(function () {
             async: false,
             url : '/checkEmail',
             data: {
-                "e-mail": email
+                "email": email
             },
             error : function(data) {
                 $('#existEmail').val("User with such E-mail is already exist!");

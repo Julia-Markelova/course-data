@@ -26,6 +26,7 @@ public class Users {
     private Boolean antropolog;
     private Boolean minerolog;
     private Boolean banned;
+    private Boolean admin;
     private List<Posts> posts;
 
     protected Users()
@@ -184,4 +185,15 @@ public class Users {
     public void setBanned(Boolean banned) {
         this.banned = banned;
     }
+
+    @Basic
+    @Column(name = "admin")
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
+    }
+
 }

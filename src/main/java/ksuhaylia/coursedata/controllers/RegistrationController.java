@@ -36,10 +36,10 @@ public class RegistrationController {
 
     @RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
     public @ResponseBody
-    ResponseEntity checkEmail(Authentication authentication)
+    ResponseEntity checkEmail(@RequestParam("email") String email)
     {
-    if(userRepository.findUsersByEmail(authentication.getName())!=null) {
-        logger.info("no user with E-mail "+authentication.getName());
+    if(userRepository.findUsersByEmail(email)!=null) {
+        logger.info(" user with E-mail "+email+" is already exist");
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     return new ResponseEntity(HttpStatus.OK);
@@ -56,7 +56,7 @@ public class RegistrationController {
         int code = random.nextInt(height - low) + low;
         try {
             emailSender.sendEmail(email, code, "Код подтверждения регистрации", "Регистрация");
-            logger.info("message sent on E-maail "+email);
+            logger.info("message sent on E-mail "+email);
         }catch (Exception ex){
             logger.error("can not sent message on E-mail "+email);
         }
@@ -72,22 +72,23 @@ public class RegistrationController {
         ModelAndView model = new ModelAndView();
         for (Map.Entry entry : new HashSet<>(confirmMap.entrySet())) {
             if(((Users)entry.getKey()).getEmail().equals(email)&&((Integer)entry.getValue()) == usersCode) {
-                ((Users) entry.getKey()).setLogin(true);
-                ((Users) entry.getKey()).setGeolog(false);
-                ((Users) entry.getKey()).setBiolog(false);
-                ((Users) entry.getKey()).setMinerolog(false);
-                ((Users) entry.getKey()).setAntropolog(false);
                 Users user = (Users) entry.getKey();
-                userRepository.save((Users)entry.getKey());
+                user.setLogin(true);
+                user.setGeolog(false);
+                user.setBiolog(false);
+                user.setMinerolog(false);
+                user.setAntropolog(false);
+                user.setAdmin(false);
+                userRepository.save(user);
                 confirmMap.remove(entry.getKey());
-                model.addObject("name",((Users) entry.getKey()).getUserName());
-                model.addObject("lastname",((Users) entry.getKey()).getUserLastName());
-                model.addObject("password",((Users) entry.getKey()).getPassword());
-                model.addObject("email", ((Users) entry.getKey()).getEmail());
-                model.addObject("biolog",(((Users) entry.getKey()).getBiolog())?"true":"false");
-                model.addObject("geolog",(((Users) entry.getKey()).getGeolog())?"true":"false");
-                model.addObject("antropolog",(((Users) entry.getKey()).getAntropolog())?"true":"false");
-                model.addObject("minerolog",(((Users) entry.getKey()).getMinerolog())?"true":"false");
+                model.addObject("name",(user.getUserName()));
+                model.addObject("lastname",(user.getUserLastName()));
+                model.addObject("password",user.getPassword());
+                model.addObject("email", user.getEmail());
+                model.addObject("biolog",user.getBiolog()?"true":"false");
+                model.addObject("geolog",user.getGeolog()?"true":"false");
+                model.addObject("antropolog",(user.getAntropolog())?"true":"false");
+                model.addObject("minerolog",(user.getMinerolog())?"true":"false");
                 model.addObject("title", "Личный кабинет");
                 model.addObject("do","исследовать");
                 model.addObject("pageName","Private Account");

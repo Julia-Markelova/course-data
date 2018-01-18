@@ -4,43 +4,35 @@
     <h2>{{name}}, добро пожаловать в личный кабинет</h2>
 
     <p>Здесь Вы можете изменить настройки и просмотреть Вашу деятельность</p>
-    <form action="/toTheRoleTest">
-        <small>У Вас уже есть уникальная роль? <input type="submit" value="Здесь" class="button"> можно ее получить
-        </small>
-    </form>
-    <form action="/logout">
-        <input type="submit" class="w3-button w3-teal w3-padding-medium" value="Выйти">
-    </form>
-    <h1>{{name}}, не забудьте сохранить все изменения!</h1>
+
 
     <form name="form1">
-        <div class="w3-third w3-margin-bottom">
+        <div class="w3-third w3-margin-bottom ">
             <ul class="w3-ul w3-border w3-hover-shadow">
                 <li class="w3-theme">
                     <p class="w3-xlarge">Настройки</p>
                 </li>
-                <li class="w3-padding-16">
+                <li class="w3-padding-24">
                     <label for="userName" class="label">Имя</label>
                     <input type="text" class="input" value="{{{name}}}" id="userName" name="userName"
-                           onclick="noErrorName()"/>
+                           onclick="noErrorName()" maxlength="20"/>
                     <label for="userName" id="incorrectName" style="color:transparent;">Заполните это поле!</label>
                 </li>
-                <li class="w3-padding-16">
+                <li class="w3-padding-24">
                     <label for="userLastName" class="label">Фамилия</label>
                     <input type="text" class="input" value="{{lastname}}"
-                           id="userLastName" name="lastname" onclick="noErrorLastName()"/>
-                    <label for="userLastName" id="incorrectLastName" style="color:transparent;">Заполните это
-                        поле!</label>
+                           id="userLastName" name="lastname" onclick="noErrorLastName()" maxlength="20"/>
+                    <label for="userLastName" id="incorrectLastName" style="color:transparent;">Заполните поле</label>
                 </li>
-                <li class="w3-padding-16">
+                <li class="w3-padding-24">
                     <label for="userEmail" class="label">E-mail</label>
                     <input type="text" class="input" value="{{email}}" id="userEmail" name="email"
-                           onclick="noErrorEmail()">
+                           onclick="noErrorEmail()" maxlength="20">
                     <label for="userEmail" id="incorrectEmail" style="color:transparent;">некорректный
                         E-mail!</label>
                     <output for="userEmail" id="usedEmail" style="color:transparent"></output>
                 </li>
-                <li class="w3-padding-16">
+                <li class="w3-padding-24">
                     <label for="userPassword" class="label">Пароль</label>
                     <input type="password" name="password" class="input"
                            id="userPassword" onclick="noErrorPassword()"/>
@@ -60,55 +52,39 @@
     <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-hover-shadow">
             <li class="w3-theme">
-                <p class="w3-xlarge">Оповещения</p>
+                <p class="w3-xlarge">{{name}}!</p>
             </li>
-            <li class="w3-padding-16">
-                <label for="news" class="label">Новости</label>
-                <input type="checkbox" class="input1" id="news"/>
+            <li class="w3-padding-24">
+                <label class="label">Не забудьте сохранить все изменения!</label>
             </li>
-            <li class="w3-padding-16">
-                <label for="videos" class="label">Видео</label>
-                <input type="checkbox" class="input1" id="videos"/>
-            </li>
-            <li class="w3-padding-16">
-                <label for="comment" class="label">Комментарии к Вашим публикациям</label>
-                <input type="checkbox" class="input1" id="comment"/>
-            </li>
-            <li class="w3-padding-16">
-                <label for="books" class="label">Обновления в библиотеке</label>
-                <input type="checkbox" class="input1" id="books"/>
-            </li>
-            <li class="w3-padding-16">
-                <label for="books" class="label">Обновления в библиотеке</label>
-                <input type="checkbox" class="input1" id="books1"/>
-            </li>
-            <li class="w3-padding-16">
-                <label for="books" class="label">Обновления в библиотеке</label>
-                <input type="checkbox" class="input1" id="books2"/>
+            <li class="w3-padding-24">
+                <label class="label">У Вас уже есть уникальная роль?</label>
+                <form action="/toTheRoleTest">
+                    <input type="submit" value="Здесь" class="button">
+                    <label class="label"> можно ее получить</label>
+                </form>
             </li>
             <li class="w3-theme-l5 w3-padding-24">
-                <button class="w3-button w3-teal w3-padding-medium" id="button1" onclick="noEmptyInput()">Сохранить
-                </button>
-                <output for="button" style="color:transparent" id="ok1"></output>
+                <form action="/logout">
+                    <input type="submit" class="w3-button w3-teal w3-padding-medium" value="Выйти">
+                </form>
             </li>
         </ul>
     </div>
 
-    <div class="w3-third w3-margin-bottom">
+    <div class="w3-third w3-margin-bottom ">
         <ul class="w3-ul w3-border w3-hover-shadow">
             <li class="w3-theme">
                 <p class="w3-xlarge">Активность</p>
             </li>
-            <li class="w3-padding-16"><b>{{posts}}</b> опубликованных статей</li>
-            <li class="w3-padding-16"><b>{{videos}}</b> опубликованных видео</li>
-            <li class="w3-padding-16"><b>{{tests}}</b> придуманных тестов</li>
-            <li class="w3-padding-16"><b>{{events}}</b> добавленных событий</li>
-            <li class="w3-padding-16">
-                <h2 class="w3-wide"><i class="fa fa-usd"></i>100</h2>
-                <span class="w3-opacity">чего-нить</span>
-            </li>
+            <li class="w3-padding-32"><b>{{posts}}</b> опубликованных статей<br/></li>
+            <li class="w3-padding-32"><b>{{videos}}</b> опубликованных видео<br/></li>
+            <li class="w3-padding-32"><b>{{tests}}</b> придуманных тестов</li>
+            <li class="w3-padding-32"><b>{{events}}</b> добавленных событий</li>
             <li class="w3-theme-l5 w3-padding-24">
-                <button class="w3-button w3-teal w3-padding-medium">Понятно</button>
+                <form action="/showMyPost">
+                    <button class="w3-button w3-teal w3-padding-medium" type="submit">Просмотреть</button>
+                </form>
             </li>
         </ul>
     </div>

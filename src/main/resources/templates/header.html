@@ -109,6 +109,8 @@
 
 
 <section class="col-md-17" id ="content">
+    <h2 style="text-align: center">А вы знали?</h2>
+    <p style="text-align: center">удивительные факты окружающего мира</p>
     {{{header.body}}}
 </section>
 
@@ -132,7 +134,7 @@
 
             <div class="w3-container">
 
-            пкин</h3>
+            <h3>Вася Пупкин</h3>
                 <h4>о чем-нибудь важном</h4>
                 <p>мы опять не сдали курсач вовремя</p>
                 <p>вот такая вот тяжелая жизнь на вт</p>
@@ -144,7 +146,7 @@
 
     <div class="w3-quarter">
         <div class="w3-card w3-white w3-hover-opacity">
-            <img src="images/img/client2.jpg" alt="Cinque Terre" style="width:100%">
+            <img src="images/images.jpg" alt="Cinque Terre" style="width:100%">
             <div class="w3-container">
                 <h3>Кто-то</h3>
                 <h4>Что-то</h4>
@@ -158,13 +160,12 @@
 
     <div class="w3-quarter">
         <div class="w3-card w3-white w3-hover-opacity">
-            <img src="images/img/client3.jpg" alt="Monterosso" style="width:100%">
+            <img src="images/images.jpg" alt="Monterosso" style="width:100%">
             <div class="w3-container">
-                <h3>Здесь живет красивый дизайн</h3>
+                <h3>Здесь живет дизайн</h3>
                 <h4>Давайте просто смотреть картинки</h4>
                 <p>А не изучать фунцкиональность</p>
                 <p>не знаю что написать</p>
-                <p>Blablabla</p>
                 <p>Blablabla</p>
             </div>
         </div>
@@ -215,15 +216,11 @@
             <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/messageForAdmin" target="_blank" method="post">
                 <div class="w3-section">
                     <label>Имя</label>
-                    <input class="w3-input" type="text" name="Name" required>
-                </div>
-                <div class="w3-section">
-                    <label>Email</label>
-                    <input class="w3-input" type="text" name="Email" required>
+                    <input class="w3-input" type="text" name="Name" required="true">
                 </div>
                 <div class="w3-section">
                     <label>Ваше сообщение</label>
-                    <input class="w3-input" type="text" name="Message" required>
+                    <input class="w3-input" type="text" name="Message" required="true">
                 </div>
                 <input class="w3-check" type="checkbox" checked name="Like">
                 <label>I Like it!</label>
@@ -235,6 +232,7 @@
 <!-- Footer -->
 <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
     <h4>Конец!</h4>
+    <a href="/developers" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Разработчикам</a>
     <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
         <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
         <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">

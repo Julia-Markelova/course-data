@@ -27,6 +27,9 @@ public class ThemeController {
     public ModelAndView era(){
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/themes");
+        model.addObject("pageName","Эры");
+        model.addObject("title","Эры");
+        model.addObject("do", "узнать");
         model.addObject("theme","Эры");
         return model;
     }
@@ -35,6 +38,9 @@ public class ThemeController {
     public ModelAndView relief(){
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/themes");
+        model.addObject("pageName","Рельеф");
+        model.addObject("title","Рельеф");
+        model.addObject("do", "узнать");
         model.addObject("theme","Изменение рельефа");
         return model;
     }
@@ -42,6 +48,9 @@ public class ThemeController {
     public ModelAndView animal(){
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/themes");
+        model.addObject("pageName","Животные");
+        model.addObject("title","Флора и фауна");
+        model.addObject("do", "узнать");
         model.addObject("theme","Флора и фауна");
         return model;
     }
@@ -49,6 +58,9 @@ public class ThemeController {
     public ModelAndView remain(){
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/themes");
+        model.addObject("pageName","Останки");
+        model.addObject("title","Найденные останки");
+        model.addObject("do", "узнать");
         model.addObject("theme","Найденные останки");
         return model;
     }
@@ -56,6 +68,9 @@ public class ThemeController {
     public ModelAndView mineral(){
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/themes");
+        model.addObject("pageName","Минералы");
+        model.addObject("title","Минералы");
+        model.addObject("do", "узнать");
         model.addObject("theme","Минералы");
         return model;
     }
@@ -63,6 +78,9 @@ public class ThemeController {
     public ModelAndView continent(){
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/themes");
+        model.addObject("pageName","Континенты");
+        model.addObject("title","Континенты");
+        model.addObject("do", "узнать");
         model.addObject("theme","Континенты");
         return model;
     }

@@ -4,28 +4,13 @@
 
 
 $(function () {
-    switch (location.pathname){
-        case "/showEvents":
-            update("/updateEvents");
-            break;
-        case "/showRead":
-            update("/updatePosts");
-            break;
-        case "/showVideos":
-            update("/updateVideos");
-            break;
-        case "/showTests":
-            update("/updateTests");
-            break;
-        case "/":
-            update("/updateNews");
-            break;
-    }
+    update("/myPosts");
 });
 
 function update(url) {
     $.ajax({
         url: url,
+        data: {theme: document.getElementById("value").value},
         success: function (data) {
             clear();
             if(data.length>0) {
@@ -33,7 +18,7 @@ function update(url) {
                     draw(t);
                 })
             }
-            else document.getElementById("new").innerHTML= "В данном разделе нет публикаций";
+            else document.getElementById("theme").innerHTML= "У Вас нет ни одной публикации";
         },
         dataType: "json"
     });
@@ -41,7 +26,7 @@ function update(url) {
 
 
 function draw(t) {
-    var mainDiv = document.getElementById("new");
+    var mainDiv = document.getElementById("theme");
     var form = document.createElement("form");
     var innerDiv = document.createElement("div");
     innerDiv.setAttribute("class", "w3-third w3-margin-bottom");
@@ -95,7 +80,7 @@ function draw(t) {
 }
 
 function clear() {
-    var mainDiv = document.getElementById("new");
+    var mainDiv = document.getElementById("theme");
     while (mainDiv.firstChild) {
         mainDiv.removeChild(mainDiv.firstChild);
     }
@@ -105,3 +90,6 @@ function clear() {
 
 
 
+/**
+ * Created by ymark on 18.01.2018.
+ */

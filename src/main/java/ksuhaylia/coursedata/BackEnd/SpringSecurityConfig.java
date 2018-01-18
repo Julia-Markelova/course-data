@@ -52,7 +52,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/resetPassword/confirm",
                         "/checkEmail",
                         "/addUser/confirm",
-                        "/sendCode"
+                        "/sendCode",
+                        "/messageForAdmin"
                 ).permitAll()
                 .antMatchers("/changeUser",
                         "/checkRoleTest",
@@ -65,11 +66,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/showLibrary",
                         "/showInterakt",
                         "/createPost",
+                        "/showMyPost",
+                        "/myPosts",
                         "/createNew").hasAnyRole("login")
                 .antMatchers("/geograf").hasAnyRole("geolog")
                 .antMatchers("/minerolog").hasAnyRole("minerolog")
                 .antMatchers("/antropolog").hasAnyRole("antropolog")
                 .antMatchers("/biolog").hasAnyRole("biolog")
+                .antMatchers("/developers",
+                        "/developerAllow",
+                        "/allow").hasAnyRole("admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -13,10 +13,12 @@ function update(url) {
         data: {theme: document.getElementById("value").value},
         success: function (data) {
             clear();
-            data.forEach(function (t) {
-                draw(t);
-            })
-
+            if(data.length>0) {
+                data.forEach(function (t) {
+                    draw(t);
+                })
+            }
+            else document.getElementById("theme").innerHTML= "По данной теме нет публикаций";
         },
         dataType: "json"
     });
@@ -38,13 +40,22 @@ function draw(t) {
     li1.appendChild(p);
     var li2 = document.createElement("li");
     li2.setAttribute("class", "w3-padding-16");
-    li2.innerHTML ="Что это? "+ t.type;
+    li2.innerHTML ="Что это? ";
+    var b1 = document.createElement("b");
+    b1.innerHTML = t.type;
+    li2.appendChild(b1);
     var li3 = document.createElement("li");
     li3.setAttribute("class", "w3-padding-16");
-    li3.innerHTML ="Автор "+ t.user.userName + " " + t.user.userLastName;
+    li3.innerHTML ="Автор: ";
+    var b2 = document.createElement("b");
+    b2.innerHTML =     t.user.userName + " " + t.user.userLastName;
+    li3.appendChild(b2);
     var li4 = document.createElement("li");
     li4.setAttribute("class", "w3-padding-16");
-    li4.innerHTML ="О чем это? "+ t.title;
+    li4.innerHTML ="О чем это? ";
+    var b3 = document.createElement("b");
+    b3.innerHTML =  t.title;
+    li4.appendChild(b3);
     var li5 = document.createElement("li");
     li5.setAttribute("class", "w3-theme-l5 w3-padding-24");
     form.setAttribute("action", "/postPage");

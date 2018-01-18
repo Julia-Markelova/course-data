@@ -66,9 +66,11 @@ public class RolesController {
         else
             emailSender.sendEmail(email, 0, noRole, "Получение роли");
             ModelAndView model = new ModelAndView();
-            model.setViewName("../static/Roles/TestResult");
+            model.addObject("pageName", "Role test");
+            model.addObject("title",user.getUserName()+" спасибо за прохождение теста! Ваш результат можете посмотреть" +
+                    "на почте или в личном кабинете!");
+            model.setViewName("../static/posted");
         return model;
-
     }
 
     @RequestMapping(value = "/toTheRoleTest" )
@@ -77,6 +79,4 @@ public class RolesController {
         model.setViewName("../static/Roles/RoleTest");
         return model;
     }
-
-
 }

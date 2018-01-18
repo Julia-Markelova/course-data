@@ -31,12 +31,13 @@ Logger logger = Logger.getLogger(PostController.class);
                                    Authentication auth) {
         Users user = userRepository.findUsersByEmail(auth.getName());
         Posts posts = new Posts(title,body,type,theme,user,content);
+        posts.setAllow(false);
         postRepository.save(posts);
         logger.info("user "+user.getEmail()+" add new post about "+theme+" "+title);
         ModelAndView model = new ModelAndView();
         model.setViewName("../static/posted");
         model.addObject("pageName", "New post");
-        model.addObject("title",title) ;
+        model.addObject("title","Ваша запись '"+title+"' в скором времени будет опубликована!");
         return model;
     }
 
@@ -83,32 +84,32 @@ Logger logger = Logger.getLogger(PostController.class);
 
     @RequestMapping(value = "/updateVideos")
     public @ResponseBody  List<Posts> updateVideos() {
-        List<Posts>  posts = postRepository.findPostsByType("Видео");
+        List<Posts>  posts = postRepository.findPostsByTypeAndAllow("Видеоконтент",true);
         Collections.reverse(posts);
         return posts;
     }
 
     @RequestMapping(value = "/updatePosts")
     public @ResponseBody  List<Posts> updatePosts() {
-        List<Posts>  posts = postRepository.findPostsByType("Статья");
+        List<Posts>  posts = postRepository.findPostsByTypeAndAllow("Статья",true);
         Collections.reverse(posts);
         return posts;
     }
     @RequestMapping(value = "/updateEvents")
     public @ResponseBody  List<Posts> updateEvents() {
-        List<Posts>  posts = postRepository.findPostsByType("Событие");
+        List<Posts>  posts = postRepository.findPostsByTypeAndAllow("Событие",true);
         Collections.reverse(posts);
         return posts;
     }
     @RequestMapping(value = "/updateTests")
     public @ResponseBody  List<Posts> updateTests() {
-        List<Posts>  posts = postRepository.findPostsByType("Тест");
+        List<Posts>  posts = postRepository.findPostsByTypeAndAllow("Тест",true);
         Collections.reverse(posts);
         return posts;
     }
     @RequestMapping(value = "/updateNews")
     public @ResponseBody  List<Posts> updateNews() {
-        List<Posts> posts = (List<Posts>) postRepository.findAll();
+        List<Posts> posts = (List<Posts>) postRepository.findPostsByAllow(true);
         Collections.reverse(posts);
         return posts;
     }
@@ -127,5 +128,27 @@ Logger logger = Logger.getLogger(PostController.class);
         model.addObject("title", post.getTitle());
         model.addObject("do", "узнать");
         return model;
+    }
+
+    @RequestMapping(value = "/showMyPost")
+    public ModelAndView userPost(Authentication auth){
+        Users user = userRepository.findUsersByEmail(auth.getName());
+        ModelAndView model  = new ModelAndView();
+        model.setViewName("../static/userPost");
+        model.addObject("pageName","Ваши публикации");
+        model.addObject("title","Ваши публикации");
+        model.addObject("do", "рассказать");
+        model.addObject("theme",user.getUserId());
+        model.addObject("js","userPost");
+        return model;
+    }
+
+    @RequestMapping("/myPosts")
+    public @ResponseBody
+    List<Posts> load(@RequestParam("theme") int theme){
+        Users users = userRepository.findOne(theme);
+        List<Posts> themes = users.getPosts();
+        Collections.reverse(themes);
+        return themes;
     }
 }
