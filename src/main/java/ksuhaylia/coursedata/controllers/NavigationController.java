@@ -1,6 +1,7 @@
 package ksuhaylia.coursedata.controllers;
 
 import ksuhaylia.coursedata.entity.Users;
+import ksuhaylia.coursedata.repository.PostRepository;
 import ksuhaylia.coursedata.repository.UserRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class NavigationController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PostRepository postRepository;
     Logger logger = Logger.getLogger(NavigationController.class);
 
     @RequestMapping(value = "/showPrivateAccount")
@@ -37,6 +40,10 @@ public class NavigationController {
         model.addObject("title", "Личный кабинет");
         model.addObject("do", "исследовать");
         model.addObject("pageName", "Private Account");
+        model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
+        model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+        model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
+        model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
         logger.info("user "+user.getEmail()+" is in private account now");
         return model;
     }

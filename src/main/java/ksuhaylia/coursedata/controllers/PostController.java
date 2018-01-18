@@ -47,7 +47,7 @@ Logger logger = Logger.getLogger(PostController.class);
                     model.addObject("body","Введите текст статьи");
                     model.addObject("content","Добавьте ссылку на картинку");
                     model.addObject("contentType","text");
-                    model.addObject("type","Cтатья");
+                    model.addObject("type","Статья");
                     return model;
                 case "video":
                     model.addObject("pageName", "New video");
@@ -107,5 +107,21 @@ Logger logger = Logger.getLogger(PostController.class);
         List<Posts> posts = (List<Posts>) postRepository.findAll();
         Collections.reverse(posts);
         return posts;
+    }
+
+    @RequestMapping(value = "/postPage")
+    public ModelAndView postPage(@RequestParam("id") int id){
+        Posts post = postRepository.findOne(id);
+        String author = post.getUser().getUserName()+" "+post.getUser().getUserLastName();
+        ModelAndView model  = new ModelAndView();
+        model.setViewName("../static/postPage");
+        model.addObject("pageName", post.getTitle());
+        model.addObject("body",post.getBody());
+        model.addObject("content",post.getContent());
+        model.addObject("type",post.getType());
+        model.addObject("author",author);
+        model.addObject("title", post.getTitle());
+        model.addObject("do", "узнать");
+        return model;
     }
 }

@@ -14,4 +14,5 @@ public interface PostRepository extends CrudRepository<Posts,Integer> {
  public List<Posts> findPostsByTheme(String theme);
 List<Posts> findPostsByType(String type);
 List<Posts> findPostsByTypeAndUser(String type, Users user);
+
 }

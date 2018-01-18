@@ -4,6 +4,7 @@ package ksuhaylia.coursedata.controllers;
 
 import ksuhaylia.coursedata.BackEnd.EmailSender;
 import ksuhaylia.coursedata.entity.Users;
+import ksuhaylia.coursedata.repository.PostRepository;
 import ksuhaylia.coursedata.repository.UserRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class RegistrationController {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder encoder;
+    @Autowired
+    private PostRepository postRepository;
     private EmailSender emailSender = new EmailSender();
     private LinkedHashMap<Users,Integer> confirmMap = new LinkedHashMap<>();
     private Logger logger = Logger.getLogger(RegistrationController.class);
@@ -74,6 +77,7 @@ public class RegistrationController {
                 ((Users) entry.getKey()).setBiolog(false);
                 ((Users) entry.getKey()).setMinerolog(false);
                 ((Users) entry.getKey()).setAntropolog(false);
+                Users user = (Users) entry.getKey();
                 userRepository.save((Users)entry.getKey());
                 confirmMap.remove(entry.getKey());
                 model.addObject("name",((Users) entry.getKey()).getUserName());
@@ -84,6 +88,13 @@ public class RegistrationController {
                 model.addObject("geolog",(((Users) entry.getKey()).getGeolog())?"true":"false");
                 model.addObject("antropolog",(((Users) entry.getKey()).getAntropolog())?"true":"false");
                 model.addObject("minerolog",(((Users) entry.getKey()).getMinerolog())?"true":"false");
+                model.addObject("title", "Личный кабинет");
+                model.addObject("do","исследовать");
+                model.addObject("pageName","Private Account");
+                model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
+                model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+                model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
+                model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
                 model.setViewName("../static/privateAccount");
                 logger.info("register user "+email);
                 return model;

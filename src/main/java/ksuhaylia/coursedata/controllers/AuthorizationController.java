@@ -2,6 +2,7 @@ package ksuhaylia.coursedata.controllers;
 
 import ksuhaylia.coursedata.BackEnd.EmailSender;
 import ksuhaylia.coursedata.entity.Users;
+import ksuhaylia.coursedata.repository.PostRepository;
 import ksuhaylia.coursedata.repository.UserRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +24,16 @@ import java.util.*;
  * Created by ymark on 13.12.2017.
  */
 @Controller
-@SessionAttributes({"email","name","lastname","password","message", "biolog","geolog","antropolog","minerolog"})
 public class AuthorizationController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PostRepository postRepository;
     private EmailSender emailSender = new EmailSender();
     private LinkedHashMap<String,Integer> confirmMap = new LinkedHashMap<>();
     private Logger logger =Logger.getLogger(AuthorizationController.class);
+
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public ModelAndView authorize(Authentication authentication) {
@@ -47,6 +50,10 @@ public class AuthorizationController {
         model.addObject("title", "Личный кабинет");
         model.addObject("do","исследовать");
         model.addObject("pageName","Private Account");
+        model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
+        model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+        model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
+        model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
         return model;
     }
 
@@ -96,6 +103,10 @@ public class AuthorizationController {
                 model.addObject("title", "Личный кабинет");
                 model.addObject("do","исследовать");
                 model.addObject("pageName","Private account");
+                model.addObject("posts",postRepository.findPostsByTypeAndUser("Статья",user).size());
+                model.addObject("videos", postRepository.findPostsByTypeAndUser("Видео",user).size());
+                model.addObject("events",postRepository.findPostsByTypeAndUser("Событие",user).size());
+                model.addObject("tests",postRepository.findPostsByTypeAndUser("Тест",user).size());
                 confirmMap.remove((String)entry.getKey());
                 return model;
             }

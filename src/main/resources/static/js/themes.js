@@ -4,23 +4,7 @@
 
 
 $(function () {
-    switch (location.pathname){
-        case "/showEvents":
-            update("/updateEvents");
-            break;
-        case "/showRead":
-            update("/updatePosts");
-            break;
-        case "/showVideo":
-            update("/updateVideo");
-            break;
-        case "/showTests":
-            update("/updateTests");
-            break;
-        case "/":
-            update("/updateNews");
-            break;
-    }
+    update("/loadTheme");
 });
 
 function update(url) {
@@ -29,7 +13,7 @@ function update(url) {
         success: function (data) {
             clear();
             data.forEach(function (t) {
-                    draw(t);
+                draw(t);
             })
 
         },
@@ -39,7 +23,7 @@ function update(url) {
 
 
 function draw(t) {
-    var mainDiv = document.getElementById("new");
+    var mainDiv = document.getElementById("theme");
     var form = document.createElement("form");
     var innerDiv = document.createElement("div");
     innerDiv.setAttribute("class", "w3-third w3-margin-bottom");
@@ -84,7 +68,7 @@ function draw(t) {
 }
 
 function clear() {
-    var mainDiv = document.getElementById("new");
+    var mainDiv = document.getElementById("theme");
     while (mainDiv.firstChild) {
         mainDiv.removeChild(mainDiv.firstChild);
     }

@@ -1,0 +1,28 @@
+{{#header}}
+
+
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing" xmlns="http://java.sun.com/jsf/html">
+    <h2>{{author}}:</h2>
+
+    <p>{{title}}</p>
+</div>
+<!-- таблица-->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+    <div class="w3-half">
+        <h2>{{title}}</h2>
+        <p>{{body}}</p>
+    </div>
+
+    <div class="w3-half">
+        <img src="{{content}}" alt="Здесь могла быть Ваша картинка" style="width:100%">
+        <iframe src="{{content}}" alt="Здесь могло быть Ваше видео" allowfullscreen="true"/>
+        <div class="w3-container">
+        вложения к записи: {{content}}
+        </div>
+    </div>
+</div>
+
+
+{{/header}}
+{{>header}}
