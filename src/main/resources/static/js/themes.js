@@ -10,6 +10,7 @@ $(function () {
 function update(url) {
     $.ajax({
         url: url,
+        data: {theme: document.getElementById("value").value},
         success: function (data) {
             clear();
             data.forEach(function (t) {

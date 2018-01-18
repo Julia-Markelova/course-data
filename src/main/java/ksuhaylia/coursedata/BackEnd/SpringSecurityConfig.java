@@ -39,18 +39,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/signin",
+                .antMatchers("/",
+                        "/signin",
                         "/postPage",
-                        "/updateEvents",
-                        "/updatePosts",
-                        "/updateVideo",
-                        "/updateTests",
-                        "/updateNews",
-                        "/showTests" ,
-                        "/",
-                        "/showThemes",
-                        "/showRead",
-                        "/showEvents",
+                        "/updateEvents","/updatePosts","/updateVideo","/updateTests","/updateNews",
+                        "/showTests", "/showRead", "/showEvents", "/loadTheme",
+                        "/era","/continent", "/relief", "/mineral", "/remain", "/animal",
                         "/authorizeUser",
                         "/resetPasswort",
                         "/checkPassword",

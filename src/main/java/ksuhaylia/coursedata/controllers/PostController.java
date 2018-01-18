@@ -33,7 +33,11 @@ Logger logger = Logger.getLogger(PostController.class);
         Posts posts = new Posts(title,body,type,theme,user,content);
         postRepository.save(posts);
         logger.info("user "+user.getEmail()+" add new post about "+theme+" "+title);
-       return new ModelAndView("../static/Ksyu/newPost");
+        ModelAndView model = new ModelAndView();
+        model.setViewName("../static/posted");
+        model.addObject("pageName", "New post");
+        model.addObject("title",title) ;
+        return model;
     }
 
     @RequestMapping(value = "/addNew")
