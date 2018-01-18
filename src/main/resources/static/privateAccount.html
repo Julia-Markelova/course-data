@@ -1,0 +1,150 @@
+{{#header}}
+
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing" xmlns="http://java.sun.com/jsf/html">
+    <h2>{{name}}, добро пожаловать в личный кабинет</h2>
+
+    <p>Здесь Вы можете изменить настройки и просмотреть Вашу деятельность</p>
+    <form action="/toTheRoleTest">
+        <small>У Вас уже есть уникальная роль? <input type="submit" value="Здесь" class="button"> можно ее получить
+        </small>
+    </form>
+    <form action="/logout">
+        <input type="submit" class="w3-button w3-teal w3-padding-medium" value="Выйти">
+    </form>
+    <h1>{{name}}, не забудьте сохранить все изменения!</h1>
+
+    <form name="form1">
+        <div class="w3-third w3-margin-bottom">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme">
+                    <p class="w3-xlarge">Настройки</p>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="userName" class="label">Имя</label>
+                    <input type="text" class="input" value="{{{name}}}" id="userName" name="userName"
+                           onclick="noErrorName()"/>
+                    <label for="userName" id="incorrectName" style="color:transparent;">Заполните это поле!</label>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="userLastName" class="label">Фамилия</label>
+                    <input type="text" class="input" value="{{lastname}}"
+                           id="userLastName" name="lastname" onclick="noErrorLastName()"/>
+                    <label for="userLastName" id="incorrectLastName" style="color:transparent;">Заполните это
+                        поле!</label>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="userEmail" class="label">E-mail</label>
+                    <input type="text" class="input" value="{{email}}" id="userEmail" name="email"
+                           onclick="noErrorEmail()">
+                    <label for="userEmail" id="incorrectEmail" style="color:transparent;">некорректный
+                        E-mail!</label>
+                    <output for="userEmail" id="usedEmail" style="color:transparent"></output>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="userPassword" class="label">Пароль</label>
+                    <input type="password" name="password" class="input"
+                           id="userPassword" onclick="noErrorPassword()"/>
+                    <label for="userPassword" id="incorrectPassword" style="color:transparent;">Заполните это
+                        поле!</label></li>
+                <li class="w3-theme-l5 w3-padding-24">
+                    <button type="button" class="w3-button w3-teal w3-padding-medium" id="button"
+                            onclick="noEmptyInput()">Сохранить
+                    </button>
+                    <output for="button" style="color:transparent" id="ok"></output>
+
+                </li>
+            </ul>
+        </div>
+    </form>
+
+    <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow">
+            <li class="w3-theme">
+                <p class="w3-xlarge">Оповещения</p>
+            </li>
+            <li class="w3-padding-16">
+                <label for="news" class="label">Новости</label>
+                <input type="checkbox" class="input1" id="news"/>
+            </li>
+            <li class="w3-padding-16">
+                <label for="videos" class="label">Видео</label>
+                <input type="checkbox" class="input1" id="videos"/>
+            </li>
+            <li class="w3-padding-16">
+                <label for="comment" class="label">Комментарии к Вашим публикациям</label>
+                <input type="checkbox" class="input1" id="comment"/>
+            </li>
+            <li class="w3-padding-16">
+                <label for="books" class="label">Обновления в библиотеке</label>
+                <input type="checkbox" class="input1" id="books"/>
+            </li>
+            <li class="w3-padding-16">
+                <label for="books" class="label">Обновления в библиотеке</label>
+                <input type="checkbox" class="input1" id="books1"/>
+            </li>
+            <li class="w3-padding-16">
+                <label for="books" class="label">Обновления в библиотеке</label>
+                <input type="checkbox" class="input1" id="books2"/>
+            </li>
+            <li class="w3-theme-l5 w3-padding-24">
+                <button class="w3-button w3-teal w3-padding-medium" id="button1" onclick="noEmptyInput()">Сохранить
+                </button>
+                <output for="button" style="color:transparent" id="ok1"></output>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow">
+            <li class="w3-theme">
+                <p class="w3-xlarge">Активность</p>
+            </li>
+            <li class="w3-padding-16"><b>25GB</b> Публикаций</li>
+            <li class="w3-padding-16"><b>25</b> Комментариев</li>
+            <li class="w3-padding-16"><b>25</b> Пройденных тестов</li>
+            <li class="w3-padding-16"><b>100</b>чего-нибудь</li>
+            <li class="w3-padding-16">
+                <h2 class="w3-wide"><i class="fa fa-usd"></i> 25</h2>
+                <span class="w3-opacity">чего-нибудь</span>
+            </li>
+            <li class="w3-theme-l5 w3-padding-24">
+                <button class="w3-button w3-teal w3-padding-medium">Понятно</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- таблица-->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+    <div class="w3-half">
+        <h2>Ваши роли</h2>
+        <p>Добро пожаловать в мир удивительных фактов и открытий</p>
+    </div>
+
+    <div class="w3-half">
+        <table class="simple-little-table" cellspacing="2">
+            <thead>
+            <tr>
+                <th>Биолог</th>
+                <th>Геолог</th>
+                <th>Антрополог</th>
+                <th>Минеролог</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{biolog}}</td>
+                <td>{{geolog}}</td>
+                <td>{{antropolog}}</td>
+                <td>{{minerolog}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{{/header}}
+{{>header}}

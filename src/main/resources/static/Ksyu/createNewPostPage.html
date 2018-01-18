@@ -1,0 +1,41 @@
+{{#shortHeader}}
+
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Создать публикацию</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Правила</label>
+        <div class="login-form">
+            <form id="authorizationForm" method="get" action="/addNew">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="selectType" class="label">Что это?</label>
+                        <select class="w3-input" required="true" id="selectType" name="type">
+                            <option value="read">Новая статья</option>
+                            <option value="video">Новый видеоконтент</option>
+                            <option value="events">Новое событие</option>
+                            <option value="tests">Новый тест</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="w3-button w3-middle w3-theme" value="Продолжить" id="AsubmitButton" onclick="validate()">
+                    </div>
+                </div>
+            </form>
+            <form id="registrationForm" method="get">
+                <div class="sign-up-htm" id="signUp">
+                    <div class="group">
+                        <label class="label">Чтобы вашу запись опубликовал администратор, она должна быть уникальна
+                            и соотвествовать нормам цензуры. Так же проверяется соответствие указанной теме записи.
+                            За несоблюдение этих простых правил более 2х раз последует бан. Администратор в праве не
+                            сообщать вам об удалении ваших записей из-за нарушения правил публикации. Успехов!
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{{/shortHeader}}
+{{>shortHeader}}

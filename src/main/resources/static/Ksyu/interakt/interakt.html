@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Волшебство здесь</title>
+    <link rel="stylesheet" type="text/css" href="Ksyu/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="Ksyu/css/fancybox-thumbs.css">
+    <link rel="stylesheet" type="text/css" href="Ksyu/css/fancybox-buttons.css">
+    <link rel="stylesheet" type="text/css" href="Ksyu/css/fancybox.css">
+    <link rel="stylesheet" type="text/css" href="Ksyu/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="Ksyu/css/main.css">
+
+    <script type="text/javascript" src="Ksyu/js/jquery.js"></script>
+    <script type="text/javascript" src="Ksyu/js/fancybox.js"></script>
+    <script type="text/javascript" src="Ksyu/js/fancybox-buttons.js"></script>
+    <script type="text/javascript" src="Ksyu/js/fancybox-media.js"></script>
+    <script type="text/javascript" src="Ksyu/js/fancybox-thumbs.js"></script>
+    <script type="text/javascript" src="Ksyu/js/wow.js"></script>
+    <script type="text/javascript" src="Ksyu/js/main.js"></script>
+
+</head>
+<body>
+
+<section class="billboard light">
+
+    <div id="header1">
+        <div id="1" class="pidor">
+            <form action="/showNews" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Новости">
+            </form>
+        </div>
+        <div id="2" class="pidor">
+            <form action="/showThemes" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Темы">
+            </form>
+        </div>
+
+        <div id="3" class="pidor">
+            <form action="/showVideos" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Смотреть">
+            </form>
+        </div>
+
+        <div id="4" class="pidor">
+            <form action="/showRead" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Читать">
+            </form>
+        </div>
+
+        <div id="5" class="pidor">
+            <form action="/showEvents" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="События">
+            </form>
+        </div>
+
+        <div id="10" class="pidor">
+            <form action="/showLibrary" class="form" id="6">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Библиотека">
+            </form>
+        </div>
+
+        <div id="7" class="pidor">
+            <form action="/showTests" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Тесты">
+            </form>
+        </div>
+        <div id="8" class="pidor">
+            <form action="" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="active" value="Интерактивность">
+            </form>
+        </div>
+        <div id="9" class="pidor">
+            <form action="/showPrivateAccount" class="form">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="HELPME" value="Личный кабинет" id="lol">
+            </form>
+        </div>
+    </div>
+
+
+    <div class="caption light animated wow fadeInDown clearfix">
+        <h1>Развитие жизни на Земле</h1>
+        <p>позвольте себе узнать большее о планете, на которой вы живете</p>
+        <p>Здесь и сейчас у Вас есть возможность углубиться в удивительный мир планеты Земля</p>
+        <hr>
+    </div>
+    <div class="shadow"></div>
+</section>
+
+
+<section class="services wrapper">
+    <ul class="clearfix">
+        <li class="animated wow fadeInDown">
+            <img class="icon" src="Ksyu/img/earth1.jpg" height="304" alt=""/>
+            <span class="separator"></span>
+            <h2>Для географа</h2>
+            <p>Время рельефа!</p>
+            <form action="/geograf">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="button" value="Кликай, если ты географ"/>
+            </form>
+        </li>
+        <li class="animated wow fadeInDown"  data-wow-delay=".4s">
+            <img class="icon" src="Ksyu/img/list.png"  alt=""/>
+            <span class="separator"></span>
+            <h2>Для биолога</h2>
+            <p>Время флоры и фауны!</p>
+            <form action="/biolog">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="button" value="Кликай, если ты биолог"/>
+            </form>
+        </li>
+
+
+
+
+        <li class="animated wow fadeInDown"  data-wow-delay=".2s">
+            <img class="icon" src="Ksyu/img/mineral.png" height="303" alt=""/>
+            <span class="separator"></span>
+            <h2>Для минеролога</h2>
+            <p>Время камней!</p>
+            <form action="/minerolog">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="button" value="Кликай, если ты минеролог"/>
+            </form>
+        </li>
+        <li class="animated wow fadeInDown"  data-wow-delay=".4s">
+            <img class="icon" src="Ksyu/img/evol.jpg"  alt=""/>
+            <span class="separator"></span>
+            <h2>Для антрополога</h2>
+            <p>Человек, здесь твое время обращается вспять!</p>
+            <form action="/antropolog">
+                <input type="hidden" name="email" value="{{oldEmail}}">
+                <input type="submit" class="button" value="Кликай, если ты антрополог"/>
+            </form>
+        </li>
+    </ul>
+</section><!--  End services  -->
+
+
+
+
+
+</body>
+</html>

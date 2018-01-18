@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<title>{{pageName}}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/css/account.css" rel="stylesheet" type="text/css"/>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="/js/changeAccount.js"></script>
+<script src="/js/library.js"></script>
+<script src ="/js/polling.js"></script>
+
+<style>
+    body,h1 {
+        font-family: "Raleway", sans-serif;
+        color: black;
+    }
+    body, html {height: 100%}
+    .bgimg {
+        background-image: url('/images/img/billboard2.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+
+
+<body id="myPage">
+
+<!-- Sidebar on click -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal" style="font-size: medium">Закрыть
+        <i class="fa fa-remove"></i>
+    </a>
+    <a href="/createNew" class="w3-bar-item w3-button" style="font-size: medium">Предложить запись</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="font-size: medium">Сообщить об ошибке</a>
+</nav>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme-d2 w3-left-align">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Новости</a>
+        <a href="/showVideos" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Смотреть</a>
+        <a href="/showRead" class="w3-bar-item w3-button w3-hide-small w3-hover-white" >Читать</a>
+        <a href="/showTests" class="w3-bar-item w3-button w3-hide-small w3-hover-white" >Тесты</a>
+        <a href="/showLibrary" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Библиотека</a>
+        <a href="/showEvents" class="w3-bar-item w3-button w3-hide-small w3-hover-white" >События</a>
+        <a href="/showInterakt" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Интерактивность</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-button" title="Themes">Темы <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                <a href="#team" class="w3-bar-item w3-button">Эры</a>
+                <a href="#contact" class="w3-bar-item w3-button">Рельеф</a>
+                <a href="#team" class="w3-bar-item w3-button">Животные</a>
+                <a href="#contact" class="w3-bar-item w3-button">Раскопки</a>
+                <a href="#team" class="w3-bar-item w3-button">Континенты</a>
+                <a href="#contact" class="w3-bar-item w3-button">Минералы</a>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-button">О нас <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                <a href="#team" class="w3-bar-item w3-button">Разработчики</a>
+                <a href="#contact" class="w3-bar-item w3-button">Обратная связь</a>
+
+            </div>
+        </div>
+        <a href="/showPrivateAccount" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Account">Личный кабинет</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+        <a href="#team" class="w3-bar-item w3-button">Новости</a>
+        <a href="#work" class="w3-bar-item w3-button">Смотреть</a>
+        <a href="#pricing" class="w3-bar-item w3-button">Читать</a>
+        <a href="#contact" class="w3-bar-item w3-button">Тесты</a>
+        <a href="#" class="w3-bar-item w3-button">Библиотека</a>
+        <a href="#contact" class="w3-bar-item w3-button">События</a>
+        <a href="#" class="w3-bar-item w3-button">Интерактивность</a>
+        <a href="#contact" class="w3-bar-item w3-button">Темы</a>
+        <a href="#" class="w3-bar-item w3-button">Личный кабинет</a>
+    </div>
+</div>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+    <div class="w3-display-middle">
+        <h1>{{title}}</h1>
+        <small style="color:#009688 ">Образовательный портал</small>
+        <hr class="w3-border-grey" style="margin:0;width:100%">
+        <p style="color:#000;">позвольте себе {{do}} большее о планете, на которой вы живете</p>
+        <hr class="w3-border-grey" style="margin:0 0 5% 0;width:100%">
+        <p>
+            <input type="button" onclick="window.location.href='/signin';"
+                    id="registerButton" class="w3-button w3-xlarge w3-theme w3-hover-teal"
+                    title="Register" value="Зарегистрироваться"/>
+        </p>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large">
+        Made in Saint Petersburg
+    </div>
+</div>
+
+
+<section class="col-md-17" id ="content">
+    {{{header.body}}}
+</section>
+
+<!-- Container -->
+<div class="w3-container" style="position:relative">
+    <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
+       style="position:absolute;top:-28px;right:24px;font-size: medium">+</a>
+</div>
+
+<!-- Актуальное-->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+    <div class="w3-quarter">
+        <h2>От создателей</h2>
+        <p>Добро пожаловать в мир удивительных фактов и открытий</p>
+    </div>
+
+    <div class="w3-quarter">
+        <div class="w3-card w3-white w3-hover-opacity">
+            <img src="Ksyu/img/client1.jpg" alt="Vernazza" style="width:100%">
+            <div class="w3-container">
+                <h3>Вася Пупкин</h3>
+                <h4>о чем-нибудь важном</h4>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-quarter">
+        <div class="w3-card w3-white w3-hover-opacity">
+            <img src="Ksyu/img/client2.jpg" alt="Cinque Terre" style="width:100%">
+            <div class="w3-container">
+                <h3>Кто-то</h3>
+                <h4>Что-то</h4>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-quarter">
+        <div class="w3-card w3-white w3-hover-opacity">
+            <img src="Ksyu/img/client3.jpg" alt="Monterosso" style="width:100%">
+            <div class="w3-container">
+                <h3>Кто-то</h3>
+                <h4>Что-то</h4>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+                <p>Blablabla</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+    <h2>OUR TEAM</h2>
+    <p>Meet the team - our room rats:</p>
+
+    <div class="w3-row"><br>
+        <div class="w3-half">
+            <a href="https://vk.com/my_markelova">
+            <img src="images/img/julia.jpg" alt="Boss" style="width:40%" class="w3-rectangle w3-hover-opacity">
+            <h3>Юлька Маркелова</h3>
+            <p>Web Designer</p>
+            <p>Support</p>
+            <p>Fixer</p>
+            </a>
+        </div>
+
+        <div class="w3-half">
+            <a href="https://vk.com/id97715644">
+            <img src="images/img/ksuha2.jpg" alt="Boss" style="width:43%;" class="w3-rectangle w3-hover-opacity">
+            <h3>Ксюшка Цыганова</h3>
+            <p>Web Designer</p>
+            <p>Support</p>
+            <p>Fixer</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Container -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+    <div class="w3-row">
+        <div class="w3-col m5">
+            <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Обратная связь</span></div>
+            <h3>Адрес</h3>
+            <p>Заходите на чашечку кофе</p>
+            <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> Спб, Россия</p>
+            <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>   7 777 777 77 77</p>
+            <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  lifeintheearth@mail.ru</p>
+        </div>
+        <div class="w3-col m7">
+            <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/messageForAdmin" target="_blank" method="post">
+                <div class="w3-section">
+                    <label>Имя</label>
+                    <input class="w3-input" type="text" name="Name" required>
+                </div>
+                <div class="w3-section">
+                    <label>Email</label>
+                    <input class="w3-input" type="text" name="Email" required>
+                </div>
+                <div class="w3-section">
+                    <label>Ваше сообщение</label>
+                    <input class="w3-input" type="text" name="Message" required>
+                </div>
+                <input class="w3-check" type="checkbox" checked name="Like">
+                <label>I Like it!</label>
+                <button type="submit" class="w3-button w3-right w3-theme">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+    <h4>Конец!</h4>
+    <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+        <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+        <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+    </div>
+</footer>
+
+
+<script>
+    // Script for side navigation
+    function w3_open() {
+        var x = document.getElementById("mySidebar");
+        x.style.width = "300px";
+        x.style.paddingTop = "10%";
+        x.style.display = "block";
+    }
+
+    // Close side navigation
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") === -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+
+</body>
+</html>

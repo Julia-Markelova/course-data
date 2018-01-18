@@ -1,0 +1,65 @@
+{{#shortHeader}}
+
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Создать публикацию</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Правила</label>
+        <div class="login-form">
+            <form id="authorizationForm" method="post" action="/addPost">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="selectTheme" class="label">О чем это?</label>
+                        <select class="w3-input" required="true" id="selectTheme" name="theme">
+                            <option value="Эры">Эры</option>
+                            <option value="Континенты">Континенты</option>
+                            <option value="Флора и фауна">Флора и фауна</option>
+                            <option value="Изменение рельефа">Измение рельефа</option>
+                            <option value="Минералы">Минералы</option>
+                            <option value="Развитие человека">Развитие человека</option>
+                            <option value="Найденные останки">Найденные останки</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <label for="AeMail" class="label" id="userLabel">Заголовок</label>
+                        <input id="AeMail" type="text" class="w3-input" name="title" placeholder="Укажите заголовок"
+                               onclick="noErrorName()" required="true">
+                        <label for="AeMail" style="color: transparent" id="AincorrectEMail">Поле не может быть пустым!</label>
+                        <label for="AeMail" style="color: transparent" id="AenterEmail">Required input!</label>
+                    </div>
+                    <div class="group">
+                        <label for="Apassword" class="label">{{body}}</label>
+                        <textarea id="Apassword"  class="w3-input" data-type="password" required="true"
+                                  name="body" placeholder="Введите текст" onclick="noErrorName()">
+                        </textarea>
+                        <label for="Apassword" style="color: transparent" id="AincorrectPassword">Введите текст!</label>
+                    </div>
+                    <div class="group">
+                        <label for="href" class="label">{{content}} </label>
+                        <input type="{{contentType}}" class="w3-input" name="content" id="href">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="w3-button w3-middle w3-theme" value="Публиковать" id="AsubmitButton" onclick="validate()">
+                    </div>
+                    <div class="hr"></div>
+
+                    <div class="foot-lnk">
+                        <output id="error" style="color: transparent"></output>
+                    </div>
+                </div>
+                <input type="hidden" value="{{type}}" name="type">
+            </form>
+                <div class="sign-up-htm" id="signUp">
+                    <div class="group">
+                        <label class="label">Чтобы вашу запись опубликовал администратор, она должна быть уникальна
+                            и соотвествовать нормам цензуры. Так же проверяется соответствие указанной теме записи.
+                            За несоблюдение этих простых правил более 2х раз последует бан. Администратор в праве не
+                            сообщать вам об удалении ваших записей из-за нарушения правил публикации. Успехов!
+                        </label>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+{{/shortHeader}}
+{{>shortHeader}}

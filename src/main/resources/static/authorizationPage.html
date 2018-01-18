@@ -1,0 +1,83 @@
+{{#shortHeader}}
+
+<div class="login-wrap">
+
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Войти</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Регистрация</label>
+        <div class="login-form">
+
+
+            <form id="authorizationForm" method="post" action="/signin">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="AeMail" class="label" id="userLabel">Логин</label>
+                        <input id="AeMail" type="text" class="w3-input" name="username" required="true" placeholder="E-mail"
+                               onclick="noErrorName()">
+                        <label for="AeMail" style="color: transparent" id="AincorrectEMail">некорректный E-mail!</label>
+                        <label for="AeMail" style="color: transparent" id="AenterEmail">Заполните это поле!</label>
+                    </div>
+                    <div class="group">
+                        <label for="Apassword" class="label">Пароль</label>
+                        <input id="Apassword" type="password" class="w3-input" data-type="password" required="true"
+                               name="password" placeholder="пароль" onclick="noErrorPassword()">
+                        <label for="Apassword" style="color: transparent" id="AincorrectPassword">Заполните это поле!</label>
+                    </div>
+                    <div class="group">
+                        <input type="button" class="w3-button w3-middle w3-theme" value="Войти" id="AsubmitButton" onclick="checkInput()">
+                    </div>
+                    <div class="hr">
+                        <label id="error" style="color: red"></label>
+                    </div>
+                    <div class="foot-lnk">
+                        <a href="/reset" id="a">Забыли пароль?</a>
+                    </div>
+                    <div class="foot-lnk">
+
+
+                        <p>
+                            <output style="color: teal; font-size: 90%">Просматривайте больше разделов!</output>
+                        </p>
+                    </div>
+                </div>
+
+
+            </form>
+            <form id="registrationForm" method="get" action="/sendCode">
+                <div class="sign-up-htm" id="signUp">
+                    <div class="group">
+                        <label for="userName" class="label"> Имя</label>
+                        <input id="userName" type="text" class="w3-input" name="name" placeholder="Ваше имя"
+                               onclick="noErrorRname()">
+                        <label for="userName" style="color: transparent" id="enterName">Заполните это поле!</label>
+                    </div>
+                    <div class="group">
+                        <label for="userLastName" class="label">Фамилия</label>
+                        <input id="userLastName" type="text" class="w3-input" name="lastname" placeholder="Your lastname">
+                        <label for="userLastName" style="color: transparent">lol</label>
+                    </div>
+                    <div class="group">
+                        <label for="eMail" class="label">E-mail</label>
+                        <input id="eMail" type="text" class="w3-input" name="e-mail" required="true"
+                               placeholder="Ваш E-mail" onclick="noErrorReMail()">
+                        <output for="eMail" style="color: red" id="existEmail"></output>
+                        <label for="eMail" style="color: transparent" id="incorrectEMail">некорректный E-mail!</label>
+                    </div>
+                    <div class="group">
+                        <label for="password" class="label">Придумайте пароль</label>
+                        <input id="password" type="password" class="w3-input" required="true" name="password"
+                               placeholder="пароль" onclick="noErrorRpassword()">
+                        <label for="password" style="color: transparent" id="enterPassword">Заполните это поле!</label>
+                    </div>
+                    <div class="group">
+                        <input type="button" class="w3-button w3-middle w3-theme" value="Зарегистрироваться" id="submitButton" onclick="ValidateEmail()">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{/shortHeader}}
+{{>shortHeader}}
