@@ -70,9 +70,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/myPosts",
                         "/createNew").hasAnyRole("login")
                 .antMatchers("/geograf").hasAnyRole("geolog")
-                .antMatchers("/minerolog").hasAnyRole("minerolog")
+                .antMatchers("/minerolog","/findMineral","/mineralInterakt").hasAnyRole("minerolog")
                 .antMatchers("/antropolog").hasAnyRole("antropolog")
-                .antMatchers("/biolog").hasAnyRole("biolog")
+                .antMatchers("/biolog","/biologyTest","/worldInteract").hasAnyRole("biolog")
                 .antMatchers("/developers",
                         "/developerAllow",
                         "/allow").hasAnyRole("admin")

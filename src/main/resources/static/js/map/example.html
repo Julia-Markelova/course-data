@@ -1,0 +1,290 @@
+{{#shortHeader}}
+
+<!— World map containter. Width and height can be set here —>
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing">
+    <h2 style="color:#000;">Получите информацию о животных, обитающих на данном континенте в конкретную эру</h2>
+</div>
+<div style="margin:auto">
+    <div id="place" style="width:649px;height:400px; margin:auto;">
+
+
+</div >
+    <div style="margin: auto; width: 150px">
+        <form id="myForm">
+            <output style="color: black;font-size: medium; text-align: center" id="continent"></output>
+        </form>
+
+        <input type="button" onclick="update()"
+           class="w3-button w3-xlarge w3-theme w3-hover-teal"
+           style="margin: auto"
+           title="Result" value="Получить результат"/>
+    </div>
+</div>
+
+
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="main">
+
+</div>
+
+<script type="text/javascript" src = "/js/map.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
+<script type="text/javascript" src="../js/map/jquery.svgworldmap-2.1.src.js"></script>
+<link type="text/css" rel="stylesheet" href="../js/map/svgworldmap.css"/>
+
+<style type="text/css">
+    body {
+        background-color: white;!important;
+        font-family: arial, sans-serif;
+    }
+
+    div.lastlink {
+        border-top: 1px solid #e0e0e0;
+        margin-top: 10px;
+        padding: 10px;
+    }
+</style>
+<script type="text/javascript">
+
+    /* Country click handler */
+    function countryclick(tld) {
+        var country = tld;
+        switch (country) {
+            case 'GL': {
+                document.getElementById("continent").value = "Северная Америка";
+                break;
+            }
+            case 'CA': {
+                document.getElementById("continent").value = "Северная Америка";
+                break;
+            }
+            case 'IS': {
+                document.getElementById("continent").value = "Северная Америка";
+                break;
+            }
+            case 'US': {
+                document.getElementById("continent").value = "Северная Америка";
+                break;
+            }
+            case 'MX': {
+                document.getElementById("continent").value = "Северная Америка";
+                break;
+            }
+            case 'BR': {
+                document.getElementById("continent").value = "Южная Америка";
+                break;
+            }
+            case 'CO': {
+                document.getElementById("continent").value = "Южная Америка";
+                break;
+            }
+            case 'PE': {
+                document.getElementById("continent").value = "Южная Америка";
+                break;
+            }
+            case 'AR': {
+                document.getElementById("continent").value = "Южная Америка";
+                break;
+            }
+            case 'BO': {
+                document.getElementById("continent").value = "Южная Америка";
+                break;
+            }
+            case 'PY': {
+                document.getElementById("continent").value = "Южная Америка";
+                break;
+            }
+
+            case 'AU': {
+                document.getElementById("continent").value = "Австралия";
+                break;
+            }
+            case 'NZ': {
+                document.getElementById("continent").value = "Австралия";
+                break;
+            }
+            case 'PG': {
+                document.getElementById("continent").value = "Австралия";
+                break;
+            }
+
+            case 'RU': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'FI': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'SE': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'NO': {
+                document.getElementById("continent").value = "Евразияя";
+                break;
+            }
+            case 'PL': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'DE': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'UA': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'BY': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'FR': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'ES': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'TR': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'RO': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'KZ': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'MN': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'CN': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'IN': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'IR': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+            case 'IQ': {
+                document.getElementById("continent").value = "Евразия";
+                break;
+            }
+
+            case 'DZ': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'LY': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'EG': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'SA': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'SD': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'TD': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'NE': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'ML': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'MR': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'NG': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'ET': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'ZR': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'CF': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'AO': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'ZM': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'KE': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'TZ': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'MG': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'NA': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'BW': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'ZW': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+            case 'ZA': {
+                document.getElementById("continent").value = "Африка";
+                break;
+            }
+
+        }
+
+// jQuery('body').append(jQuery('<p></p>').text("Выбранная Вами страна располагается на континенте "+document.getElementById("continent").value));
+    }
+
+    jQuery(document).ready(function () {
+
+        jQuery('#place').SVGWorldMap({
+            bottom: 20, /* Bottom padding (removes antarctica from map) */
+            clickhandler: 'countryclick', /* Click handler function name */
+            c: {BR: 1, RU: 1, IN: 1, CN: 1, US: 1, UK: 1} /* Country classes */
+        });
+
+    });
+
+</script>
+
+{{/shortHeader}}
+{{>shortHeader}}

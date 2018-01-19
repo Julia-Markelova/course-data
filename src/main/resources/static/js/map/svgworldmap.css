@@ -1,0 +1,15 @@
+.worldmap {fill:#23b6dc45;stroke:black;stroke-width:0.5px;}
+.worldmap:hover {fill:#0fe70f;stroke:black;stroke-width:0.5px;}
+.worldmap:checked{fill: #2005dc;stroke:black;stroke-width:0.5px;}
+
+
+.worldmap_1 {fill:#23b6dc45;stroke:black;stroke-width:0.5px;}
+.worldmap_1:hover {fill:#18f118;stroke:black;stroke-width:0.5px;}
+.worldmap_1:checked{fill: #2005dc;stroke:black;stroke-width:0.5px;}
+
+
+
+.worldmap_2 {fill:#23b6dc45;stroke:black;stroke-width:0.5px;}
+.worldmap_2:hover {fill:#16f316;stroke:black;stroke-width:0.5px;}
+.worldmap_2:checked{fill: #2005dc;stroke:black;stroke-width:0.5px;}
+

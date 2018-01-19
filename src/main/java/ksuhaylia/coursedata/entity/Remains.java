@@ -1,5 +1,7 @@
 package ksuhaylia.coursedata.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -87,6 +89,7 @@ public class Remains {
      * Метод, реализующий связь One-to-One с Флора и Фауна
      * @return возвращает конкретное животное, останок которого был найден
      */
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="animal_id")
     public FloraFauna getFloraFauna() {

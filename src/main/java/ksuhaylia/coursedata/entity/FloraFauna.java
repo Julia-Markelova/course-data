@@ -1,5 +1,7 @@
 package ksuhaylia.coursedata.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -42,6 +44,7 @@ public class FloraFauna {
      * Свойство - код предка (для реализации рекурсивной связи)
      */
     private Integer parentId;
+    private String image;
     /**
      * Объект класса Останки используется в методе, реализующем связь One-to-One
      * @see FloraFauna#getRemain()
@@ -111,10 +114,23 @@ public class FloraFauna {
         this.parentId = parentId;
     }
 
+    @Basic
+    @Column(name = "image", nullable = true)
+    public String getImage() {
+        return image;
+    }
+
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
     /**
      * Метод, реализующий связь One-to-One с сущностью Останки
      * @return возвращает останок конкретного представителя
      */
+
     @OneToOne(mappedBy = "floraFauna")
     public Remains getRemain() {
         return remain;

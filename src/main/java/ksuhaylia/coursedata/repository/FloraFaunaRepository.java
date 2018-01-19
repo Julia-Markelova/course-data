@@ -10,5 +10,5 @@ public interface FloraFaunaRepository extends CrudRepository<FloraFauna, Integer
     public List<FloraFauna> findFloraFaunaByFoodType(String foodType);
     public List<FloraFauna> findFloraFaunaByParentId(int id);
     public void deleteByAnimalId(int id);
-
+    List<FloraFauna> findFloraFaunaByAreal(String areal);
 }

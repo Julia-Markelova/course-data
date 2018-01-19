@@ -80,7 +80,7 @@ public class Minerals {
      * Метод, реализующий связь Many-to-Many с сущностью Рельеф
      * @return возвращает список типов рельефов, на которых есть минералы
      */
-    @JsonIgnore
+
     @ManyToMany(mappedBy = "minerals")
     public List<Relief> getReliefs() {
         return reliefs;

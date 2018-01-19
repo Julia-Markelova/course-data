@@ -1,0 +1,99 @@
+
+{{#header}}
+
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing" xmlns="http://java.sun.com/jsf/html">
+    <h2>Поиск интересующих Вас минералов здесь!</h2>
+
+    <p>Просто выбирайте параметры и наслаждайтесь...</p>
+
+    <form id="myForm">
+        <div class="w3-third w3-margin-bottom">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme">
+                    <p class="w3-xlarge">Цена</p>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="minPrice" class="label">Минимум</label>
+                    <input type="number" class="input" value="0" id="minPrice" name="minPrice" required="true"/>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="maxPrice" class="label">Максимум</label>
+                    <input type="number" class="input" id="maxPrice" name="maxPrice" required="true"/>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="w3-third w3-margin-bottom">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme">
+                    <p class="w3-xlarge">Высота рельефа</p>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="kay" class="label">больше 7000м</label>
+                    <input type="radio" class="input1" id="kay" name="era" value="7000"/>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="pal" class="label">больше 7500м</label>
+                    <input type="radio" class="input1" id="pal" name="era" value="7500"/>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="arh" class="label">больше 8000м</label>
+                    <input type="radio" class="input1" id="arh" name="era" value="8000"/>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="mez" class="label">больше 8200м</label>
+                    <input type="radio" class="input1" id="mez" name="era" value="8200"/>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="prot" class="label">больше 8500</label>
+                    <input type="radio" class="input1" id="prot" name="era" value="8500"/>
+                </li>
+                <li class="w3-theme-l5 w3-padding-24">
+                    <input type="button" class="w3-button w3-teal w3-padding-medium" id="search" value="Искать" />
+                </li>
+            </ul>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme">
+                    <p class="w3-xlarge">Минерал</p>
+                </li>
+                <li class="w3-padding-16">
+                    <label for="authorLastName" class="label">Название минерала</label>
+                    <input type="number" class="input" id="authorLastName" name="mineral" maxlength="40" />
+                </li>
+                <li class="w3-padding-16">
+                    <label for="edition" class="label">Химическа формула</label>
+                    <input type="text" class="input" id="edition" name="formula"  maxlength="30"/>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+<!-- таблица-->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+    Результаты поиска:
+    <output id="booksNotFound"></output>
+    <div>
+        <table class="simple-little-table" cellspacing="2">
+            <thead>
+            <tr>
+                <th>Название минерала</th>
+                <th>Химическая формула</th>
+                <th>Найден в...</th>
+                <th>Цена</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{{/header}}
+{{>header}}

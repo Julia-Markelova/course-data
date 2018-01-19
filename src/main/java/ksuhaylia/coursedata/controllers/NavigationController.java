@@ -123,17 +123,6 @@ public class NavigationController {
         return model;
     }
 
-    @RequestMapping(value = "/showInterakt")
-    public ModelAndView showInterakt() {
-        ModelAndView model = new ModelAndView();
-        model.addObject("title", "Интерактив");
-        model.addObject("do", "исследовать");
-        model.addObject("pageName", "Interakt");
-        model.setViewName("../static/interakt/interakt");
-        return model;
-    }
-
-
     @RequestMapping(value = "/createPost")
     public ModelAndView createPost() {
         ModelAndView model = new ModelAndView();
@@ -155,6 +144,31 @@ public class NavigationController {
     public ModelAndView error(){
         return new ModelAndView("../static/403");
     }
+
+    @RequestMapping(value = "/worldInteract")
+    public ModelAndView biologyInteract() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("../static/js/map/example");
+        model.addObject("pageName", "worldInterakt");
+        return model;
+    }
+    @RequestMapping(value = "/showInterakt")
+    public ModelAndView showInterakt() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Интерактив");
+        model.addObject("do", "исследовать");
+        model.addObject("pageName", "Interakt");
+        model.setViewName("../static/Interact/mainInteract");
+        return model;
+    }
+    @RequestMapping(value = "/biologyTest")
+    public ModelAndView showTestsBio() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("../static/Tests/biologyTest");
+        return model;
+    }
+
+
 
 }
 
